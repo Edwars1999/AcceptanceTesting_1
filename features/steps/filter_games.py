@@ -23,11 +23,19 @@ def step_impl(context):
 def step_impl(context, name):
 	context.name = name
 
+@given('the user enters the rating: {rating}')
+def step_impl(context, rating):
+	context.rating = rating
 
-@when("the user search games by {criteria}")
+@when("the user search games by: {criteria}")
 def step_impl(context, criteria):
 	if(criteria == 'name'):
 		result, message = get_game_name(context.games, context.name)
+		print(result)
+		context.result = result
+		context.message = message
+	if(criteria == 'rating'):
+		result, message, error = get_game_rating(context.games, context.rating)
 		print(result)
 		context.result = result
 		context.message = message
@@ -55,3 +63,6 @@ def step_impl(context, message):
 	print(message)
 	print(context.message)
 	assert context.message == message
+
+
+############################################################

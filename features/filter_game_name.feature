@@ -11,7 +11,7 @@ Feature: Search games by name
      | Super Smash Bros. Ultimate | 2018         | Bandai Namco Studios | E      |
      | The Last of Us             | 2013         | Naughty Dog          | M      |
       Given the user enters the name: The
-      When the user search games by name
+      When the user search games by: name
       Then 2 games will match
       And the names of these games are
       | NAME                       |
@@ -29,6 +29,6 @@ Feature: Search games by name
      | Super Smash Bros. Ultimate | 2018         | Bandai Namco Studios | E      |
      | The Last of Us             | 2013         | Naughty Dog          | M      |
       Given the user enters the name: 'xyz'
-      When the user search games by name
+      When the user search games by: name
       Then 0 games will match
       And the following message is displayed: No game with the specified name was found.
